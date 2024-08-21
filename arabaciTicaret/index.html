@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ürün Yönetim Sistemi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="search-bar">
+        <input type="text" placeholder="Ara" class="search-bar-input">
+        <button class="search-bar-button">Ara</button>
+    </div>
+
+    <nav>
+        <button onclick="showSection('productListSection')">Ürün Listesi</button>
+        <button onclick="showSection('warehouseSection')">Depo</button>
+        <button onclick="showSection('recentSection')">Son Eklenenler</button>
+        <button onclick="resetData()">Verileri Sıfırla</button>
+    </nav>
+
+    <div id="productListSection" class="section">
+        <h2>Ürün Listesi</h2>
+        <div>
+            <select id="categoryFilter">
+                <option value="">Tüm Kategoriler</option>
+            </select>
+            <button onclick="filterByCategory()">Filtrele</button>
+        </div>
+        <ul id="productList"></ul>
+        <div>
+            <input type="text" id="newProductName" placeholder="Yeni Ürün Adı">
+            <input type="text" id="newProductCategory" list="categoryOptions" placeholder="Yeni Ürün Kategorisi">
+            <datalist id="categoryOptions"></datalist>
+            <input type="number" id="newProductStock" placeholder="Yeni Ürün Stok Miktarı">
+            <button onclick="addProduct()">Ekle</button>
+        </div>
+    </div>
+
+    <div id="warehouseSection" class="section" style="display: none">
+        <h2>Depo</h2>
+        <select id="warehouseSort">
+            <option value="name">İsme Göre</option>
+            <option value="stock">Stok Miktarına Göre</option>
+        </select>
+        <ul id="warehouseList"></ul>
+    </div>
+
+    <div id="recentSection" class="section" style="display: none">
+        <h2>Son Eklenenler</h2>
+        <ul id="recentList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
